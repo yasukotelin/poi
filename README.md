@@ -21,7 +21,7 @@ projects:
 
 If you have use fuzzy-finder command (like fzf or peco), you can access the project quickly.
 
-![poi with fzf](./images/poi-with-fzf.gif)
+![poi with fzf](./images/poi-fzf.gif)
 
 ## Installation
 
@@ -71,10 +71,14 @@ If you create a alias and use it, so fast access!!
 alias poipoi='cd "$(poi | fzf)"'
 ```
 
+and you can use `poipoi` command.
+
+![poipoi](./images/poipoi.gif)
+
 ## Author
 
 yasukotelin
 
 ## Licence
 
-- MIT Licence
+MIT Licence
