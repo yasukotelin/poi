@@ -9,6 +9,10 @@ import (
 	"github.com/urfave/cli"
 )
 
+var (
+	ignores []string = []string{"build", "bin", "out", "node_modules", ".idea", ".vscode", "vendor", ".gradle"}
+)
+
 func poiAction(c *cli.Context) error {
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -48,6 +52,8 @@ func getProjectFullPaths(conf *config) ([]string, error) {
 				parent := filepath.Dir(path)
 				paths = append(paths, parent)
 				return filepath.SkipDir
+			} else if info.IsDir() && isIgnore(info) {
+				return filepath.SkipDir
 			}
 
 			return nil
@@ -59,6 +65,15 @@ func getProjectFullPaths(conf *config) ([]string, error) {
 	}
 
 	return paths, nil
+}
+
+func isIgnore(info os.FileInfo) bool {
+	for _, ignore := range ignores {
+		if info.Name() == ignore {
+			return true
+		}
+	}
+	return false
 }
 
 func getOtherFullPaths(conf *config) ([]string, error) {
