@@ -17,7 +17,7 @@ projects:
   - ~/go/src
 ```
 
-![poi](./images/poi.gif)
+![poi](./images/poi2.gif)
 
 If you have use fuzzy-finder command (like fzf or peco), you can access the project quickly.
 
