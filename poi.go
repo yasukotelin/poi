@@ -5,12 +5,13 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/saracen/walker"
 	"github.com/spf13/viper"
 	"github.com/urfave/cli"
 )
 
 var (
-	ignores []string = []string{"build", "bin", "out", "node_modules", ".idea", ".vscode", "vendor", ".gradle"}
+	ignores []string = []string{"build", "bin", "out", "node_modules", ".idea", ".vscode", ".gradle"}
 )
 
 func poiAction(c *cli.Context) error {
@@ -47,7 +48,8 @@ func getProjectFullPaths(conf *config) ([]string, error) {
 		if err != nil {
 			return nil, err
 		}
-		err = filepath.Walk(rootPath, func(path string, info os.FileInfo, err error) error {
+
+		err = walker.Walk(rootPath, func(path string, info os.FileInfo) error {
 			if info.IsDir() && info.Name() == ".git" {
 				parent := filepath.Dir(path)
 				paths = append(paths, parent)
