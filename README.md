@@ -8,9 +8,9 @@ This tool is inspired ghq. Only access function to the project directory!!
 
 ## Description
 
-poipoi standard output the projects(git project) from specified directory path by poipoi.yml.
+poipoi is selector with fuzzy finder the git projects from specified directory path by poipoi.yml.
 
-poipoi selected the project with fuzzy finder from specified directory path by `~/.config/poipoi/poipoi.yml`.
+The selected path will be standard output.
 
 ```poipoi.yml
 # projects - you can specify the directories had projects managed by git.
@@ -51,27 +51,65 @@ If you want to include non project directory in your result, specify this.
 
 ## Usage
 
-`poipoi` command standard output the projects simply.
+Just only use `poipoi` command!
 
-## With fzf(peco)
+### Move project directory
 
-If poipoi is used with fuzzy-finder command, it to be very very useful.
-
-Jump to project directory selected with fzf!
+Use poipoi with cd command.
 
 ```
-cd "$(poipoi | fzf)"
+> cd $(poipoi)
 ```
 
-If you create a alias and use it, so fast access!!
+If you use options.
+
+```
+> cd $(poipoi --color light)
+```
+
+and you define alias, so useful.
 
 ```.bashrc
-alias poipoi='cd "$(poi | fzf)"'
+alias poi='cd $(poipoi)'
 ```
 
-and you can use `poipoi` command.
+## Options
 
-![poipoi](./images/poipoi.gif)
+### Fuzzy finder color
+
+poipoi using fuzzy finder library is [skim](https://github.com/lotabout/skim).
+
+You can use `poipoi --color [skim color option]` and poipoi calls skim with --color option.
+
+Example, if use light background terminal.
+
+```
+poipoi --color light
+```
+
+and more custom color.
+
+```
+poipoi --color=light,fg:232,bg:255,current_bg:116,info:27
+```
+
+If you want to more infomation, see [skim readme page](https://github.com/lotabout/skim).
+
+## No fuzzy find
+
+If you don't use fuzzy find. `--noskim` option is only output project paths.
+
+```
+> poipoi --noskim
+```
+
+## With fzf or peco
+
+If you want to use fzf or peco.
+
+```
+> poipoi --noskim | fzf
+```
 
 ## Author
 
