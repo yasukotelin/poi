@@ -1,5 +1,8 @@
 # poipoi
 
+![](https://img.shields.io/crates/v/poipoi)
+![](https://img.shields.io/github/license/yasukotelin/poi)
+
 poipoi provides to get your project directories command-line tool.
 
 This tool is inspired ghq. Only access function to the project directory!!
