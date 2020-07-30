@@ -8,6 +8,8 @@ This tool is inspired ghq. Only access function to the project directory!!
 
 poi standard output the projects(git project) from specified directory path by poi.yml.
 
+poi selected the project with fuzzy finder from specified directory path by `~/.config/poi/poi.yml`.
+
 ```poi.yml
 # projects - you can specify the directories had projects managed by git.
 projects:
@@ -16,12 +18,6 @@ projects:
   - ~/source
   - ~/go/src
 ```
-
-![poi](./images/poi2.gif)
-
-If you have use fuzzy-finder command (like fzf or peco), you can access the project quickly.
-
-![poi with fzf](./images/poi-fzf.gif)
 
 ## Installation
 
