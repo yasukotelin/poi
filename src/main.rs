@@ -1,15 +1,15 @@
 use clap::App;
 use clap::Arg;
-use poi::config::ConfigLoader;
-use poi::skim;
-use poi::walkdir;
+use poipoi::config::ConfigLoader;
+use poipoi::skim;
+use poipoi::walkdir;
 use std::process;
 
 fn main() {
-    let matches = App::new("poi")
+    let matches = App::new("poipoi")
         .version("2.0.0")
         .author("yasukotelin")
-        .about("poi is a quick access tool to project directories.")
+        .about("poipoi is a quick access tool to project directories.")
         .arg(
             Arg::with_name("color")
                 .long("color")
@@ -28,7 +28,7 @@ fn main() {
 
     let config = ConfigLoader::new().load().unwrap_or_else(|e| {
         eprintln!("failed to load config file: {}", e);
-        eprintln!("should exist in $HOME_DIR/.config/poi/poi.yml.");
+        eprintln!("should exist in $HOME_DIR/.config/poipoi/poipoi.yml.");
         process::exit(1);
     });
 

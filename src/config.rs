@@ -23,8 +23,8 @@ impl ConfigLoader {
         match dirs::home_dir() {
             Some(mut path) => {
                 path.push(".config");
-                path.push("poi");
-                path.push("poi.yml");
+                path.push("poipoi");
+                path.push("poipoi.yml");
                 return Some(path);
             }
             None => return None,

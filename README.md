@@ -1,16 +1,18 @@
-# poi
+# poipoi
 
-poi provides to get your project directories command-line tool.
+poipoi provides to get your project directories command-line tool.
 
 This tool is inspired ghq. Only access function to the project directory!!
 
+> v1 called this tool "poi". v2 recreated by Rust and rename to "poipoi".
+
 ## Description
 
-poi standard output the projects(git project) from specified directory path by poi.yml.
+poipoi standard output the projects(git project) from specified directory path by poipoi.yml.
 
-poi selected the project with fuzzy finder from specified directory path by `~/.config/poi/poi.yml`.
+poipoi selected the project with fuzzy finder from specified directory path by `~/.config/poipoi/poipoi.yml`.
 
-```poi.yml
+```poipoi.yml
 # projects - you can specify the directories had projects managed by git.
 projects:
   - ~/AndroidStudioProjects
@@ -22,12 +24,12 @@ projects:
 ## Installation
 
 ```
-go get github.com/yasukotelin/poi
+cargo install poipoi
 ```
 
-Second, you shoud be put a `~/.config/poi/poi.yml` setting file.
+Second, you shoud be put a `~/.config/poipoi/poipoi.yml` setting file.
 
-```poi.yml
+```poipoi.yml
 # projects - you can specify the directories had projects managed by git.
 projects:
   - ~/AndroidStudioProjects
@@ -42,23 +44,23 @@ others:
 ```
 
 `projects:` is target the root directory path to search projects.
-poi will find the git project. And standard output them.
+poipoi will find the git project. And standard output them.
 
 `others:` is target the non project directories that are printed as is.
 If you want to include non project directory in your result, specify this.
 
 ## Usage
 
-`poi` command standard output the projects simply.
+`poipoi` command standard output the projects simply.
 
 ## With fzf(peco)
 
-If poi is used with fuzzy-finder command, it to be very very useful.
+If poipoi is used with fuzzy-finder command, it to be very very useful.
 
 Jump to project directory selected with fzf!
 
 ```
-cd "$(poi | fzf)"
+cd "$(poipoi | fzf)"
 ```
 
 If you create a alias and use it, so fast access!!

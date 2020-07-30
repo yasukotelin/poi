@@ -1,12 +1,12 @@
 [package]
-name = "poi"
+name = "poipoi"
 version = "2.0.0"
 authors = ["yasukotelin"]
 edition = "2018"
 license="MIT"
 readme="./README.md"
 repository="https://github.com/yasukotelin/poi"
-description="poi is a quick access tool to project directories."
+description="poipoi is a quick access tool to project directories."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
