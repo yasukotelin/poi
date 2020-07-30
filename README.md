@@ -1,14 +1,18 @@
-# poi
+# poipoi
 
-poi provides to get your project directories command-line tool.
+poipoi provides to get your project directories command-line tool.
 
 This tool is inspired ghq. Only access function to the project directory!!
 
+> v1 called this tool "poi". v2 recreated by Rust and rename to "poipoi".
+
 ## Description
 
-poi standard output the projects(git project) from specified directory path by poi.yml.
+poipoi is selector with fuzzy finder the git projects from specified directory path by poipoi.yml.
 
-```poi.yml
+The selected path will be standard output.
+
+```poipoi.yml
 # projects - you can specify the directories had projects managed by git.
 projects:
   - ~/AndroidStudioProjects
@@ -17,21 +21,15 @@ projects:
   - ~/go/src
 ```
 
-![poi](./images/poi2.gif)
-
-If you have use fuzzy-finder command (like fzf or peco), you can access the project quickly.
-
-![poi with fzf](./images/poi-fzf.gif)
-
 ## Installation
 
 ```
-go get github.com/yasukotelin/poi
+cargo install poipoi
 ```
 
-Second, you shoud be put a `~/.config/poi/poi.yml` setting file.
+Second, you shoud be put a `~/.config/poipoi/poipoi.yml` setting file.
 
-```poi.yml
+```poipoi.yml
 # projects - you can specify the directories had projects managed by git.
 projects:
   - ~/AndroidStudioProjects
@@ -46,34 +44,72 @@ others:
 ```
 
 `projects:` is target the root directory path to search projects.
-poi will find the git project. And standard output them.
+poipoi will find the git project. And standard output them.
 
 `others:` is target the non project directories that are printed as is.
 If you want to include non project directory in your result, specify this.
 
 ## Usage
 
-`poi` command standard output the projects simply.
+Just only use `poipoi` command!
 
-## With fzf(peco)
+### Move project directory
 
-If poi is used with fuzzy-finder command, it to be very very useful.
-
-Jump to project directory selected with fzf!
+Use poipoi with cd command.
 
 ```
-cd "$(poi | fzf)"
+> cd $(poipoi)
 ```
 
-If you create a alias and use it, so fast access!!
+If you use options.
+
+```
+> cd $(poipoi --color light)
+```
+
+and you define alias, so useful.
 
 ```.bashrc
-alias poipoi='cd "$(poi | fzf)"'
+alias poi='cd $(poipoi)'
 ```
 
-and you can use `poipoi` command.
+## Options
 
-![poipoi](./images/poipoi.gif)
+### Fuzzy finder color
+
+poipoi using fuzzy finder library is [skim](https://github.com/lotabout/skim).
+
+You can use `poipoi --color [skim color option]` and poipoi calls skim with --color option.
+
+Example, if use light background terminal.
+
+```
+poipoi --color light
+```
+
+and more custom color.
+
+```
+poipoi --color=light,fg:232,bg:255,current_bg:116,info:27
+```
+
+If you want to more infomation, see [skim readme page](https://github.com/lotabout/skim).
+
+## No fuzzy find
+
+If you don't use fuzzy find. `--noskim` option is only output project paths.
+
+```
+> poipoi --noskim
+```
+
+## With fzf or peco
+
+If you want to use fzf or peco.
+
+```
+> poipoi --noskim | fzf
+```
 
 ## Author
 
