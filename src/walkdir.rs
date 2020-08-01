@@ -60,9 +60,6 @@ fn walk_project(dir: &PathBuf) -> Vec<PathBuf> {
             return false;
         }
 
-        if e.path().is_dir() {
-            println!("{}", e.file_name().to_str().unwrap());
-        }
         return true;
     }) {}
 
