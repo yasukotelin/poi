@@ -6,10 +6,10 @@ use poipoi::walkdir;
 use std::process;
 
 fn main() {
-    let matches = App::new("poipoi")
-        .version("2.0.0")
-        .author("yasukotelin")
-        .about("poipoi is a quick access tool to project directories.")
+    let matches = App::new(clap::crate_name!())
+        .version(clap::crate_version!())
+        .author(clap::crate_authors!())
+        .about(clap::crate_description!())
         .arg(
             Arg::with_name("color")
                 .long("color")
