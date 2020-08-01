@@ -52,6 +52,12 @@ poipoi will find the git project. And standard output them.
 `others:` is target the non project directories that are printed as is.
 If you want to include non project directory in your result, specify this.
 
+## Update
+
+```
+cargo install -f poipoi
+```
+
 ## Usage
 
 Just only use `poipoi` command!
