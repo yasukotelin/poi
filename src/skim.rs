@@ -6,11 +6,12 @@ use std::path::PathBuf;
 
 pub struct Options<'a> {
     pub color: Option<&'a str>,
+    pub height: Option<&'a str>,
 }
 
 pub fn select_path(paths: Vec<PathBuf>, options: &Options) -> Option<PathBuf> {
     let options = SkimOptionsBuilder::default()
-        .height(Some("100%"))
+        .height(options.height)
         .color(options.color)
         .multi(false)
         .build()

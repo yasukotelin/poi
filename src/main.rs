@@ -18,6 +18,14 @@ fn main() {
                 .required(false),
         )
         .arg(
+            Arg::with_name("height")
+                .long("height")
+                .takes_value(true)
+                .default_value("30%")
+                .help("sets skim(fuzzy finder) height")
+                .required(false),
+        )
+        .arg(
             Arg::with_name("noskim")
                 .long("noskim")
                 .help("sets no using skim(fuzzy finder)")
@@ -41,8 +49,10 @@ fn main() {
 
     let is_use_skim = !matches.is_present("noskim");
     if is_use_skim {
-        let color = matches.value_of("color");
-        let options = skim::Options { color: color };
+        let options = skim::Options {
+            color: matches.value_of("color"),
+            height: matches.value_of("height"),
+        };
         if let Some(selected_path) = skim::select_path(paths, &options) {
             println!("{}", selected_path.to_str().unwrap());
         }

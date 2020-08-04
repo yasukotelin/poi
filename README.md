@@ -104,6 +104,14 @@ poipoi --color=light,fg:232,bg:255,current_bg:116,info:27
 
 If you want to more infomation, see [skim readme page](https://github.com/lotabout/skim).
 
+## Height
+
+Change fuzzy finder height. Default height is 30%.
+
+```
+poipoi --height 100%
+```
+
 ## No fuzzy find
 
 If you don't use fuzzy find. `--noskim` option is only output project paths.
