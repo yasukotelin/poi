@@ -1,6 +1,7 @@
 # poipoi
 
 <a href="https://crates.io/crates/poipoi"><img src="https://img.shields.io/crates/v/poipoi"/></a>
+<a href="https://crates.io/crates/poipoi"><img src="https://img.shields.io/crates/d/poipoi"/></a>
 ![](https://img.shields.io/github/license/yasukotelin/poi)
 
 poipoi provides to get your project directories command-line tool.
