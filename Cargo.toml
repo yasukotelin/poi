@@ -1,6 +1,6 @@
 [package]
 name = "poipoi"
-version = "2.0.3"
+version = "2.1.0"
 authors = ["yasukotelin"]
 edition = "2018"
 license="MIT"
@@ -16,3 +16,4 @@ dirs = "3.0.1"
 yaml-rust = "0.4"
 walkdir = "2"
 skim = "0.8.1"
+indicatif = "0.15.0"

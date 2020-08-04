@@ -1,6 +1,8 @@
 use std::path::PathBuf;
 use walkdir::DirEntry;
 use walkdir::WalkDir;
+use indicatif::ProgressBar;
+use indicatif::ProgressStyle;
 
 const IGNORES: [&str; 5] = [
     "node_modules",
@@ -11,10 +13,22 @@ const IGNORES: [&str; 5] = [
 ];
 
 pub fn walk_projects(dirs: Vec<PathBuf>) -> Vec<PathBuf> {
-    dirs.iter()
+    let pb = ProgressBar::new_spinner();
+    pb.set_style(
+        ProgressStyle::default_spinner()
+            .tick_chars("/|\\- ")
+            .template("[Searching...] {spinner:.dim.bold} {wide_msg}"),
+    );
+    pb.enable_steady_tick(80);
+
+    let paths = dirs.iter()
         .map(|d| walk_project(d))
         .flatten()
-        .collect::<Vec<PathBuf>>()
+        .collect::<Vec<PathBuf>>();
+
+    pb.finish_and_clear();
+
+    paths
 }
 
 // Skip when directory is finded ignores or "." directory.

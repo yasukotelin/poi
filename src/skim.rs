@@ -26,8 +26,7 @@ pub fn select_path(paths: Vec<PathBuf>, options: &Options) -> Option<PathBuf> {
     let items = item_reader.of_bufread(Cursor::new(input));
 
     let selected_items = Skim::run_with(&options, Some(items))
-        .map(|out| out.selected_items)
-        .unwrap_or_else(|| Vec::new());
+        .map(|out| out.selected_items)?;
 
     for item in selected_items.iter() {
         return Some(PathBuf::from(item.output().into_owned()));
