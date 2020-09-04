@@ -1,6 +1,6 @@
 [package]
 name = "poipoi"
-version = "2.2.0"
+version = "2.3.0"
 authors = ["yasukotelin"]
 edition = "2018"
 license="MIT"

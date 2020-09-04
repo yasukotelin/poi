@@ -83,6 +83,17 @@ and you define alias, so useful.
 alias poi='cd $(poipoi)'
 ```
 
+## Cache
+
+```
+poipoi cache
+```
+
+If you want to launch more quickly, you can use `poipoi cache`.
+poipoi search projects and write results to cache file and `poipoi` command use cache file. 
+
+Update cache file, you should run `poipoi cache` everytime.
+
 ## Options
 
 ### Fuzzy finder color

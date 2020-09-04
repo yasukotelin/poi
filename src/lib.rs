@@ -2,6 +2,7 @@ pub mod config;
 pub mod skim;
 pub mod utils;
 pub mod walkdir;
+pub mod cache;
 
 #[macro_export]
 macro_rules! hashmap {
